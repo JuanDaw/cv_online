@@ -5,21 +5,23 @@
       extended 
       flat
       elevate-on-scroll
-      scroll-target="#scrolling-techniques-7"
       color="#D1C4E9"
       class="py-6"
     >
-      <v-toolbar-title>
-        <img 
-          src="./assets/cv.png" 
-          alt="CV"
-          width="80"
-          height="80"
-        >
-      </v-toolbar-title>
+      <div>
+          <img 
+            src="./assets/cv.png" 
+            alt="CV"
+            width="80"
+            height="80"
+            @click.stop="!hiddenDrawer"
+          >
+      </div>
 
       <Menu />
     </v-app-bar>
+
+    <Drawer v-if="hiddenDrawer"/>
 
     <v-main>
       <router-view/>
@@ -32,16 +34,19 @@
 <script>
 import Footer from '@/components/Footer.vue'
 import Menu from '@/components/Menu.vue'
+import Drawer from '@/components/Drawer.vue'
 export default {
   name: 'App',
 
   components: {
     Footer,
-    Menu
+    Menu,
+    Drawer
   },
 
   data() {
     return {
+      hiddenDrawer: true
     }
   },
 };

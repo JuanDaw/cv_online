@@ -11,7 +11,6 @@
                 v-for="(icon, index) in icons"
                 :key="index"
                 class="mx-4"
-                flat
                 icon
                 link
                 :href="icon.link"
