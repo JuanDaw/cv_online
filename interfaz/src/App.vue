@@ -1,11 +1,11 @@
 <template>
-  <v-app>
+  <v-app v-resize="resize">
     <v-app-bar
       app
       extended 
       flat
       elevate-on-scroll
-      color="#D1C4E9"
+      color="white"
       class="py-6"
     >
       <div>
@@ -92,7 +92,7 @@ export default {
     },
 
     viewDrawer() {
-      return this.hidenDrawer && this.windowWidth < 960;
+      return this.windowWidth < 960;
     },
   },
 

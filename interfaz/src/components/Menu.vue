@@ -1,7 +1,6 @@
 <template>
     <v-toolbar
         flat
-        color="#D1C4E9"
         class="hidden-sm-and-down py-3 px-5"
       >
         <v-tabs v-model="selected">

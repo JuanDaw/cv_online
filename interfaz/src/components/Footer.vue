@@ -2,7 +2,6 @@
     <v-row>
         <v-footer
             dark
-            fixed
             color="#B39DDB"
             class="justify-end col-12"
         >
