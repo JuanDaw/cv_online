@@ -2,41 +2,45 @@
   <v-app>
     <v-app-bar
       app
-      color="warning"
-      dark
+      extended 
+      flat
+      elevate-on-scroll
+      scroll-target="#scrolling-techniques-7"
+      color="#D1C4E9"
+      class="py-6"
     >
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-      </div>
+      <v-app-bar-nav-icon></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Curriculum Vitae</v-toolbar-title>
+
+      <Menu />
     </v-app-bar>
 
     <v-main>
       <router-view/>
     </v-main>
+
+    <Footer />
   </v-app>
 </template>
 
 <script>
-
+import Footer from '@/components/Footer.vue'
+import Menu from '@/components/Menu.vue'
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  components: {
+    Footer,
+    Menu
+  },
+
+  data() {
+    return {
+    }
+  },
 };
 </script>
 <style lang="scss">
-#nav {
-  padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
 </style>

@@ -10,6 +10,16 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  {
+    path: '/estudios',
+    name: 'Estudios',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Estudios.vue')
+  },
+  {
+    path: '/proyectos',
+    name: 'Proyectos',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Proyectos.vue')
+  }
 ]
 
 const router = new VueRouter({

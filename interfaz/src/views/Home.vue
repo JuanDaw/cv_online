@@ -1,5 +1,7 @@
 <template>
-  <div>hola</div>
+  <v-container fluid>
+    Hola
+  </v-container>
 </template>
 
 <script>
