@@ -53,16 +53,14 @@
           Persona extrovertida con muchas ganas de vivir experiencias nuevas, afrontar nuevos retos y aprender al máximo de todo lo vivido.
         </v-card-title>
         <v-card-text>
-          <v-row class="pa-1">
+          <v-row class="ml-1">
             <v-list class="col-6">
               <span class="font-weight-medium">Tecnologías (de más a menos utilizadas):</span>
               <v-list-item
                 v-for="(tecnologia, index) in tecnologias"
                 :key="index"
               >
-                <v-list-item-content>
-                  <v-list-item-title>> {{ tecnologia }}</v-list-item-title>
-                </v-list-item-content>
+                <v-list-item-content>> {{ tecnologia }}</v-list-item-content>
               </v-list-item>
             </v-list>
             <v-list class="col-6">
@@ -71,23 +69,19 @@
                 v-for="(framework, index) in frameworks"
                 :key="index"
               >
-                <v-list-item-content>
-                  <v-list-item-title>> {{ framework }}</v-list-item-title>
-                </v-list-item-content>
+                <v-list-item-content>> {{ framework }}</v-list-item-content>
               </v-list-item>
             </v-list>
           </v-row>
         </v-card-text>
-        <v-card-text class="pa-2">
+        <v-card-text>
           <v-list>
             <span class="font-weight-medium">Aptitudes laborales:</span>
             <v-list-item
               v-for="(capacidad, index) in capacidades"
               :key="index"
             >
-              <v-list-item-content>
-                <v-list-item-title>> {{ capacidad }}</v-list-item-title>
-              </v-list-item-content>
+              <v-list-item-content>> {{ capacidad }}</v-list-item-content>
             </v-list-item>
           </v-list>
         </v-card-text>
