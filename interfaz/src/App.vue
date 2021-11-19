@@ -9,9 +9,14 @@
       color="#D1C4E9"
       class="py-6"
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Curriculum Vitae</v-toolbar-title>
+      <v-toolbar-title>
+        <img 
+          src="./assets/cv.png" 
+          alt="CV"
+          width="80"
+          height="80"
+        >
+      </v-toolbar-title>
 
       <Menu />
     </v-app-bar>

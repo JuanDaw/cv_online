@@ -11,18 +11,13 @@
                 v-for="(icon, index) in icons"
                 :key="index"
                 class="mx-4"
-                dark
+                flat
                 icon
+                link
+                :href="icon.link"
+                target="blank"
             >   
-                <v-btn 
-                    flat 
-                    icon
-                    link
-                    :href="icon.link"
-                    target="blank"
-                >
-                    <v-icon>{{ icon.icon }}</v-icon>
-                </v-btn>
+                <v-icon>{{ icon.icon }}</v-icon>
             </v-btn>
         </v-footer>
     </v-row>
