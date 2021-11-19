@@ -4,7 +4,7 @@
         color="#D1C4E9"
         class="hidden-sm-and-down py-3 px-5"
       >
-        <v-tabs>
+        <v-tabs v-model="selected">
           <v-tab
             v-for="(item, index) in menu"
             :key="index"
@@ -18,15 +18,23 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
     export default {
         name: 'Menu',
-        data() {
-            return {
-            }
-        },
         computed: {
+          selected: {
+            get: function () {
+              return this.$store.state.selected;
+            },
+            set: function (value) {
+              this.updateSelected(value);
+            },
+          },
           ...mapState(["menu"]),
+        },
+
+        methods: {
+          ...mapActions(["updateSelected"]),
         },
     }
 </script>

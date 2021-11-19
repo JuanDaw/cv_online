@@ -1,7 +1,7 @@
 <template>
-    <v-navigation-drawer app disable-resize-watcher>
+    <v-navigation-drawer app v-model="hidenDrawer" disable-resize-watcher>
     <v-list nav dense>
-      <v-list-item-group color="primary">
+      <v-list-item-group v-model="selected" color="primary">
         <v-list-item
           v-for="(item, index) in menu"
           :key="index"
@@ -21,11 +21,31 @@
 </template>
 
 <script>
-import { mapState } from 'vuex'
+import { mapState, mapActions } from 'vuex'
     export default {
         name: 'Drawer',
         computed: {
+            selected: {
+              get: function () {
+                return this.$store.state.selected;
+              },
+              set: function (value) {
+                this.updateSelected(value);
+              },
+            },
+            hidenDrawer: {
+              get: function () {
+                return this.$store.state.hidenDrawer;
+              },
+              set: function (value) {
+                this.updateHidenDrawer(value);
+              },
+            },
+
             ...mapState(["menu"]),
+        },
+        methods: {
+          ...mapActions(["updateSelected", "updateHidenDrawer"]),
         },
     }
 </script>

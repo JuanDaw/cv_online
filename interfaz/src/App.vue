@@ -13,15 +13,14 @@
             src="./assets/cv.png" 
             alt="CV"
             width="80"
-            height="80"
-            @click.stop="!hiddenDrawer"
+            @click.stop="updateHidenDrawer(!hidenDrawer)"
           >
       </div>
 
       <Menu />
     </v-app-bar>
 
-    <Drawer v-if="hiddenDrawer"/>
+    <Drawer v-if="viewDrawer()"/>
 
     <v-main>
       <router-view/>
@@ -35,6 +34,9 @@
 import Footer from '@/components/Footer.vue'
 import Menu from '@/components/Menu.vue'
 import Drawer from '@/components/Drawer.vue'
+
+import { mapActions } from "vuex"
+
 export default {
   name: 'App',
 
@@ -46,9 +48,64 @@ export default {
 
   data() {
     return {
-      hiddenDrawer: true
+      selectId: {
+        Home: 0,
+        Llamadas: 1,
+        Mensajes: 2,
+      },
+      windowWidth: 0,
     }
   },
+
+  selected: {
+    urlName() {
+      return this.$route.name;
+    },
+
+    selected: {
+      get: function () {
+        return this.$store.state.selected;
+      },
+      set: function (value) {
+        this.updateSelected(value);
+      },
+    },
+
+    hidenDrawer: {
+      get: function () {
+        return this.$store.state.hidenDrawer;
+      },
+      set: function (value) {
+        this.updateHidenDrawer(value);
+      },
+    },
+  },
+  mounted() {
+    this.resize();
+  },
+
+  methods: {
+    ...mapActions(["updateSelected", "updateHidenDrawer"]),
+
+    resize() {
+      this.windowWidth = window.innerWidth;
+    },
+
+    viewDrawer() {
+      return this.windowWidth < 960;
+    },
+  },
+
+  watch: {
+    selected() {
+      this.hidenDrawer = false;
+    },
+
+    urlName() {
+      this.selected = this.selectId[this.urlName];
+    },
+  },
+
 };
 </script>
 <style lang="scss">
