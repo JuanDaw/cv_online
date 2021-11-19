@@ -10,7 +10,7 @@
             <v-btn
                 v-for="(icon, index) in icons"
                 :key="index"
-                class="mx-4"
+                class="mx-1 mx-sm-4"
                 icon
                 link
                 :href="icon.link"

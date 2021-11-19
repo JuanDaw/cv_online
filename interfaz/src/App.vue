@@ -50,14 +50,14 @@ export default {
     return {
       selectId: {
         Home: 0,
-        Llamadas: 1,
-        Mensajes: 2,
+        Estudios: 1,
+        Proyectos: 2,
       },
       windowWidth: 0,
     }
   },
 
-  selected: {
+  computed: {
     urlName() {
       return this.$route.name;
     },
@@ -92,7 +92,7 @@ export default {
     },
 
     viewDrawer() {
-      return this.windowWidth < 960;
+      return this.hidenDrawer && this.windowWidth < 960;
     },
   },
 
